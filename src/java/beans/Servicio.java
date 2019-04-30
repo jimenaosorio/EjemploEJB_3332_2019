@@ -7,6 +7,7 @@ package beans;
 
 import java.util.ArrayList;
 import javax.ejb.Singleton;
+import modelo.Mensaje;
 import modelo.Oferta;
 import modelo.Postulante;
 
@@ -31,4 +32,59 @@ public class Servicio implements ServicioLocal {
         postulantes.add(new Postulante("111","admin","admin",
         "admin@localhost","admin",null,null,null));
     }
+
+    @Override
+    public Oferta buscarOferta(int codigoOferta) {
+        return null;
+    }
+
+    @Override
+    public Postulante buscarPostulante(String rut) {
+        return null;
+    }
+
+    @Override
+    public boolean cerrarOferta(int codigo) {
+        return false;
+    }
+
+    @Override
+    public boolean crearOferta(Oferta oferta) {
+        return false;
+    }
+
+    @Override
+    public String enviarMensaje(String rut, Mensaje msg) {
+        return null;
+    }
+
+    @Override
+    public ArrayList<Oferta> getOfertas() {
+        ArrayList<Oferta> tmp=new ArrayList();
+        for(Oferta of:ofertas)
+        {
+            if(of.isEstaActiva())
+            {
+                tmp.add(of);
+            }
+        }
+        return tmp;
+    }
+
+    @Override
+    public ArrayList<Postulante> getPostulantes() {
+        return null;
+    }
+
+    @Override
+    public boolean iniciarSesion(String rut, String pass) {
+        return false;
+    }
+
+    @Override
+    public String postular(String rut, int codigoOferta) {
+        return null;
+    }
+    
+    
 }

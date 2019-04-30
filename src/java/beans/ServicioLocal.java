@@ -5,7 +5,11 @@
  */
 package beans;
 
+import java.util.ArrayList;
 import javax.ejb.Local;
+import modelo.Mensaje;
+import modelo.Oferta;
+import modelo.Postulante;
 
 /**
  *
@@ -13,5 +17,23 @@ import javax.ejb.Local;
  */
 @Local
 public interface ServicioLocal {
+
+    Oferta buscarOferta(int codigoOferta);
+
+    Postulante buscarPostulante(String rut);
+
+    boolean cerrarOferta(int codigo);
+
+    boolean crearOferta(Oferta oferta);
+
+    String enviarMensaje(String rut, Mensaje msg);
+
+    ArrayList<Oferta> getOfertas();
+
+    ArrayList<Postulante> getPostulantes();
+
+    boolean iniciarSesion(String rut, String pass);
+
+    String postular(String rut, int codigoOferta);
     
 }
