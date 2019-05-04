@@ -5,27 +5,27 @@
     <div class="col s6 offset-s3 white">
         <form method="post" action="control.do">
             <div class="input-field col s12">
-                <input id="rut" type="text" class="validate">
+                <input name="rut" id="rut" type="text" class="validate">
                 <label for="rut">RUT</label>
             </div>
             <div class="input-field col s12">
-                <input id="nombre" type="text" class="validate">
+                <input name="nombre" id="nombre" type="text" class="validate">
                 <label for="nombre">Nombre</label>
             </div>
             <div class="input-field col s12">
-                <input id="apellido" type="text" class="validate">
+                <input name="apellido" id="apellido" type="text" class="validate">
                 <label for="apellido">Apellido</label>
             </div>
             <div class="input-field col s12">
-                <input id="correo" type="text" class="validate">
+                <input name="correo" id="correo" type="text" class="validate">
                 <label for="correo">Correo</label>
             </div>
             <div class="input-field col s12">
-                <input id="clave" type="password" class="validate">
+                <input name="clave" id="clave" type="password" class="validate">
                 <label for="clave">Clave</label>
             </div>
             <div class="input-field col s12">
-                <input id="clave2" type="password" class="validate">
+                <input name="clave2" id="clave2" type="password" class="validate">
                 <label for="clave2">Confirme clave</label>
             </div>
             <div>

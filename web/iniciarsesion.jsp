@@ -11,11 +11,11 @@
             <div class="card-content">
                 <form method="post" action="control.do">
                     <div class="input-field col s12">
-                        <input id="rut" type="text" class="validate">
+                        <input name="rut" id="rut" type="text" class="validate">
                         <label for="rut">RUT</label>
                     </div>
                     <div class="input-field col s12">
-                        <input id="clave" type="password" class="validate">
+                        <input name="clave" id="clave" type="password" class="validate">
                         <label for="clave">Clave</label>
                     </div>
                     <div>

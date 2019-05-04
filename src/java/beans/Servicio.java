@@ -40,7 +40,13 @@ public class Servicio implements ServicioLocal {
 
     @Override
     public Postulante buscarPostulante(String rut) {
-        return null;
+        for(Postulante p:postulantes)
+        {
+            if(p.getRut().equals(rut)){  //El postulante está en la lista
+                return p;
+            }
+        }
+        return null; //El postulante no está en la lista
     }
 
     @Override
@@ -78,6 +84,10 @@ public class Servicio implements ServicioLocal {
 
     @Override
     public boolean iniciarSesion(String rut, String pass) {
+        Postulante p=buscarPostulante(rut);
+        if(p!=null && p.getPass().equals(pass)){
+            return true;
+        }
         return false;
     }
 
@@ -85,6 +95,23 @@ public class Servicio implements ServicioLocal {
     public String postular(String rut, int codigoOferta) {
         return null;
     }
+
+    @Override
+    public String addPostulante(Postulante postulante) {
+        String msg;
+        Postulante p=buscarPostulante(postulante.getRut());
+        if(p==null)
+        {
+            postulantes.add(postulante);
+            msg="El postulante se ha ingresado correctamente";
+        }
+        else{
+            msg="El postulante ya estaba registrado";
+        }
+        return msg;
+    }
+    
+    
     
     
 }
