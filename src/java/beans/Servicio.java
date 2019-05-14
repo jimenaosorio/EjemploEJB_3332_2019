@@ -26,11 +26,11 @@ public class Servicio implements ServicioLocal {
 
     public Servicio() {
         ofertas.add(new Oferta(1,"Desarrollador Java",
-                "Desarrollador de tiempo completo",true,null));
+                "Desarrollador de tiempo completo",true));
         ofertas.add(new Oferta(2,"Diseñador web",
-                "Experto en diseño web",true,null));
+                "Experto en diseño web",true));
         postulantes.add(new Postulante("111","admin","admin",
-        "admin@localhost","admin",null,null,null));
+        "admin@localhost","admin"));
     }
 
     @Override

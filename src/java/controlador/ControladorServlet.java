@@ -75,7 +75,7 @@ public class ControladorServlet extends HttpServlet {
         if(errores.equals(""))   //No hay errores
         {
             Postulante postulante=new Postulante(rut,nombre,apellido,correo,
-                                  clave,null,null,null);
+                                  clave);
             String msg=servicio.addPostulante(postulante);
             request.setAttribute("msg",msg);
             request.getRequestDispatcher("iniciarsesion.jsp").forward(request,response);

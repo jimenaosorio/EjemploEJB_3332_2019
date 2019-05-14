@@ -21,6 +21,14 @@ public class Postulante {
     public Postulante() {
     }
 
+    public Postulante(String rut, String nombre, String apellido, String correo, String pass) {
+        this.rut = rut;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.correo = correo;
+        this.pass = pass;
+    }
+    
     public Postulante(String rut, String nombre, String apellido, String correo, 
             String pass, Perfil miPerfil,
             ArrayList<Oferta>misPostulaciones,
