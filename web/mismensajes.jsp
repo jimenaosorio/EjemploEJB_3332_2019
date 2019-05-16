@@ -1,5 +1,5 @@
 <%@include file="templates/header.jsp" %>
-<c:import url="templates/menu.jsp"/>
+<%@include file="templates/menu.jsp" %>
 
 <c:if test="${not empty rut}">
     <!-- Sesión iniciada correctamente -->

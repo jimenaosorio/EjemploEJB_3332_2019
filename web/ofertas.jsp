@@ -1,14 +1,7 @@
 <%@page import="javax.naming.InitialContext"%>
 <%@page import="beans.ServicioLocal"%>
 <%@include file="templates/header.jsp" %>
-<%! ServicioLocal servicio;%>
-<%
-    InitialContext ctx=new InitialContext();
-    servicio=(ServicioLocal)
-       ctx.lookup("java:global/Practico2_3332/Servicio!beans.ServicioLocal");
-%>
 
-<c:set var="servicio" scope="page" value="<%=servicio%>" />
 
 <%@include file="templates/menu.jsp" %>
 
