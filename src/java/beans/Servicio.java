@@ -36,6 +36,13 @@ public class Servicio implements ServicioLocal {
 
     @Override
     public Oferta buscarOferta(int codigoOferta) {
+        for(Oferta of:ofertas)
+        {
+            if(of.getCodigo()==codigoOferta)
+            {
+                return of;
+            }
+        }
         return null;
     }
 
@@ -94,7 +101,19 @@ public class Servicio implements ServicioLocal {
 
     @Override
     public String postular(String rut, int codigoOferta) {
-        return null;
+        Postulante p=buscarPostulante(rut);
+        Oferta of=buscarOferta(codigoOferta);
+        if(p!=null && of!=null && of.isEstaActiva())
+        {
+            ArrayList<Oferta> postulaciones=p.getMisPostulaciones();
+            postulaciones.add(of);
+            p.setMisPostulaciones(postulaciones);
+            ArrayList<Postulante> postulantes=of.getMisPostulantes();
+            postulantes.add(p);
+            of.setMisPostulantes(postulantes);
+            return "Postulación realizada exitosamente";
+        }
+        return "No se puede postular a la oferta";
     }
 
     @Override

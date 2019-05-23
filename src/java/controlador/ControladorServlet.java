@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Oferta;
 import modelo.Perfil;
 import modelo.Postulante;
 
@@ -49,7 +50,33 @@ public class ControladorServlet extends HttpServlet {
                             break;
             case "ingresar_perfil": ingresarPerfil(request,response);
                             break;
+            case "postular": ingresarPostulacion(request,response);
+                            break;
+            default:
+                //Es una postulacion a un trabajo
+                int codigo=0;
+                try{
+                    codigo=Integer.parseInt(btn);
+                    postular(request,response,codigo);
+                }catch(NumberFormatException ex){
+                    
+                }
         }
+    }
+    protected void ingresarPostulacion(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        Oferta oferta=(Oferta)request.getSession().getAttribute("oferta");
+        String rut=(String)request.getSession().getAttribute("rut");
+        String msg=servicio.postular(rut,oferta.getCodigo());
+        request.setAttribute("msg",msg);
+        request.getRequestDispatcher("mispostulaciones.jsp").forward(request, response);
+    }
+    protected void postular(HttpServletRequest request, 
+            HttpServletResponse response, int codigo)
+            throws ServletException, IOException {
+        Oferta oferta=servicio.buscarOferta(codigo);
+        request.getSession().setAttribute("oferta",oferta);
+        request.getRequestDispatcher("postular.jsp").forward(request,response);
     }
     protected void ingresarPerfil(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
