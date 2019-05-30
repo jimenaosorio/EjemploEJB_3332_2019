@@ -59,17 +59,37 @@ public class Servicio implements ServicioLocal {
 
     @Override
     public boolean cerrarOferta(int codigo) {
+        Oferta oferta=buscarOferta(codigo);
+        if(oferta.isEstaActiva())
+        {
+            oferta.setEstaActiva(false);
+            return true;
+        }  
         return false;
     }
 
     @Override
     public boolean crearOferta(Oferta oferta) {
+        Oferta of=buscarOferta(oferta.getCodigo());
+        if(of==null)
+        {
+            ofertas.add(oferta);
+            return true;
+        }
         return false;
     }
 
     @Override
     public String enviarMensaje(String rut, Mensaje msg) {
-        return null;
+        Postulante p=buscarPostulante(rut);
+        if(p!=null)
+        {
+            ArrayList<Mensaje> mensajes=p.getMisMensajes();
+            mensajes.add(msg);
+            p.setMisMensajes(mensajes);
+            return "El Mensaje fue enviado correctamente";
+        }
+        return "No se pudo enviar el mensaje";
     }
 
     @Override
